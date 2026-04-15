@@ -3,22 +3,22 @@ const highlights = [
   '45–60 minutos de vuelo',
   'Experiencia completa de 3–4 horas',
   'Brindis al aterrizar',
-  'Equipo profesional y cercano',
+  'Paisaje castellano y sierra al fondo',
   'Preparada para conectar con FareHarbor',
 ]
 
 const steps = [
   {
-    title: 'Reserva tu fecha',
-    text: 'Muy pronto podrás reservar directamente online. De momento, la web queda preparada para integrar FareHarbor sin rehacer el diseño.',
+    title: 'Salida temprana',
+    text: 'La experiencia comienza a primera hora, cuando la luz y la atmósfera convierten Segovia en un espectáculo tranquilo y limpio.',
   },
   {
-    title: 'Despega al amanecer',
-    text: 'Volamos a primera hora para disfrutar de la mejor luz y de las condiciones más favorables para la actividad.',
+    title: 'Vuelo panorámico',
+    text: 'Sobrevuela el paisaje segoviano, contempla el campo abierto y disfruta de una perspectiva amplia, serena y muy especial.',
   },
   {
-    title: 'Brinda y recuérdalo',
-    text: 'Tras el aterrizaje, celebramos la experiencia con un brindis y un final elegante, tranquilo y memorable.',
+    title: 'Aterrizaje y brindis',
+    text: 'Tras el vuelo, cerramos la experiencia con un final elegante y memorable, pensado para que el recuerdo quede completo.',
   },
 ]
 
@@ -29,7 +29,7 @@ const faq = [
   },
   {
     q: '¿A qué hora se vuela?',
-    a: 'Normalmente al amanecer, cuando el aire es más estable y Segovia ofrece una luz espectacular desde el globo.',
+    a: 'Normalmente al amanecer, cuando el aire es más estable y la luz sobre Segovia es especialmente bonita.',
   },
   {
     q: '¿Qué pasa si hace mal tiempo?',
@@ -56,6 +56,7 @@ export default function App() {
 
           <nav className="nav">
             <a href="#experiencia">Experiencia</a>
+            <a href="#galeria">Galería</a>
             <a href="#faq">FAQ</a>
             <a href="#contacto">Contacto</a>
           </nav>
@@ -67,27 +68,27 @@ export default function App() {
       </header>
 
       <main>
-        <section id="inicio" className="hero">
-          <div className="container hero-grid">
-            <div>
+        <section id="inicio" className="hero hero-photo">
+          <div className="hero-overlay" />
+          <div className="container hero-layout">
+            <div className="hero-panel">
               <div className="eyebrow">Vuelos en globo en Segovia</div>
-              <h1>Una forma elegante de descubrir Segovia desde el cielo</h1>
-              <p className="hero-copy">
-                Aurora Balloons nace como una marca de vuelos en globo con una imagen cuidada,
-                clara y premium. Esta web está pensada para convertir, transmitir confianza y quedar
-                lista para integrar tu sistema de reservas.
+              <h1>Segovia desde el aire, con una mirada más elegante</h1>
+              <p className="hero-copy hero-copy-light">
+                Aurora Balloons presenta una experiencia visualmente cuidada, tranquila y premium.
+                Una web pensada para transmitir confianza desde el primer segundo y convertir visitas en reservas.
               </p>
 
               <div className="hero-actions">
                 <a className="button button-primary" href="mailto:info@auroraballoons.com">
                   Solicitar información
                 </a>
-                <a className="button button-secondary" href="tel:+34605087478">
+                <a className="button button-ghost" href="tel:+34605087478">
                   Llamar ahora
                 </a>
               </div>
 
-              <ul className="stats" aria-label="Datos clave">
+              <ul className="stats stats-overlay" aria-label="Datos clave">
                 <li>
                   <strong>120 €</strong>
                   <span>precio orientativo desde</span>
@@ -102,22 +103,6 @@ export default function App() {
                 </li>
               </ul>
             </div>
-
-            <div className="hero-card" aria-hidden="true">
-              <div className="sky-card">
-                <div className="mini-badge">Aurora Signature Flight</div>
-                <div className="sky-illustration">
-                  <div className="sun" />
-                  <div className="balloon balloon-large" />
-                  <div className="balloon balloon-small" />
-                  <div className="horizon" />
-                </div>
-                <div className="card-copy">
-                  <strong>Diseño preparado para Netlify</strong>
-                  <span>Ligero, limpio y listo para seguir creciendo.</span>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -127,8 +112,7 @@ export default function App() {
               <span className="eyebrow">Qué transmite la marca</span>
               <h2>Una base visual sobria, cálida y premium</h2>
               <p>
-                He elegido una dirección de marca con tonos arena, cobre suave y azul cielo apagado,
-                para proyectar una sensación elegante y cercana sin copiar la imagen de Voyager.
+                La nueva propuesta combina paisaje real, tonos arena y una composición limpia para proyectar una sensación cuidada, cercana y de mayor valor percibido.
               </p>
             </div>
 
@@ -142,7 +126,26 @@ export default function App() {
           </div>
         </section>
 
-        <section id="experiencia" className="section section-alt">
+        <section id="galeria" className="section section-alt">
+          <div className="container">
+            <div className="section-heading narrow">
+              <span className="eyebrow">Imagen real</span>
+              <h2>Una web que ya empieza a parecer una marca de verdad</h2>
+            </div>
+
+            <div className="gallery-feature">
+              <img src="/images/aurora-segovia-hero.jpg" alt="Paisaje de Segovia visto desde un globo aerostático" />
+              <div className="gallery-copy card">
+                <h3>Paisaje auténtico, percepción más premium</h3>
+                <p>
+                  Integrar fotografía real mejora mucho la credibilidad de la marca. La home deja de sentirse provisional y empieza a transmitir experiencia real, entorno, amplitud y calma.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="experiencia" className="section">
           <div className="container">
             <div className="section-heading narrow">
               <span className="eyebrow">La experiencia</span>
@@ -150,9 +153,9 @@ export default function App() {
             </div>
 
             <div className="grid cards-3">
-              {steps.map((step) => (
+              {steps.map((step, index) => (
                 <article className="card step-card" key={step.title}>
-                  <div className="step-number">0{steps.indexOf(step) + 1}</div>
+                  <div className="step-number">0{index + 1}</div>
                   <h3>{step.title}</h3>
                   <p>{step.text}</p>
                 </article>
@@ -161,14 +164,13 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section">
+        <section className="section section-alt">
           <div className="container split-panel">
             <div>
               <span className="eyebrow">Preparada para reservar</span>
               <h2>La web queda lista para integrar FareHarbor</h2>
               <p>
-                He dejado la estructura enfocada a captación y conversión, pero sin bloquearla con un
-                sistema provisional de reservas. Así podrás conectar FareHarbor más adelante con menos fricción.
+                La estructura sigue enfocada a captación y conversión, pero sin depender aún de un sistema provisional. Así podrás conectar FareHarbor después sin rehacer la base ni el estilo.
               </p>
             </div>
 
@@ -182,7 +184,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="faq" className="section section-alt">
+        <section id="faq" className="section">
           <div className="container">
             <div className="section-heading narrow">
               <span className="eyebrow">Preguntas frecuentes</span>
@@ -206,8 +208,7 @@ export default function App() {
           <div>
             <h3>Aurora Balloons</h3>
             <p>
-              Vuelos en globo en Segovia con una propuesta visual elegante y una base técnica lista
-              para publicar en Netlify.
+              Vuelos en globo en Segovia con una propuesta visual elegante y una base técnica lista para publicar en Netlify.
             </p>
           </div>
 

@@ -22,10 +22,10 @@ npm run dev
 npm run build
 ```
 
-## Qué incluye esta primera versión
+## Qué incluye esta versión
 
 - Home orientada a conversión
-- Branding inicial propuesto
+- Integración visual con fotografía real
 - Información práctica base
 - Footer con páginas legales
 - Configuración simple para Netlify
@@ -33,6 +33,6 @@ npm run build
 ## Siguientes pasos recomendados
 
 1. Conectar el sistema de reservas con FareHarbor
-2. Añadir fotos reales
+2. Añadir más fotos reales
 3. Revisar e incorporar los datos mercantiles completos de Balloon Consulting S.L.
 4. Añadir banner de cookies si finalmente se instalan cookies analíticas, publicitarias o de terceros no técnicas
