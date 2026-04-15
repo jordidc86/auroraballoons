@@ -177,8 +177,6 @@ export default function App() {
               <ul>
                 <li><strong>Teléfono:</strong> <a href="tel:+34605087478">605 087 478</a></li>
                 <li><strong>Email:</strong> <a href="mailto:info@auroraballoons.com">info@auroraballoons.com</a></li>
-                <li><strong>Empresa:</strong> Balloon Consulting S.L.</li>
-                <li><strong>Marca comercial:</strong> Aurora Balloons</li>
               </ul>
             </div>
           </div>
