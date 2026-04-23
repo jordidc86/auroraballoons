@@ -4,7 +4,7 @@ import './styles.css';
 const packages = [
   {
     name: 'Vuelo Clásico',
-    price: '180€',
+    price: '120€',
     features: [
       'Vuelo al amanecer (45-60 min)',
       'Brindis con Cava tras el aterrizaje',
@@ -17,7 +17,7 @@ const packages = [
   },
   {
     name: 'Vuelo Privado',
-    price: '750€',
+    price: '1200€',
     features: [
       'Cesta exclusiva para 2 personas',
       'Atención personalizada 100%',
