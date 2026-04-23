@@ -65,7 +65,7 @@ export default function App() {
             <a href="#galeria">Galería</a>
             <a href="#contacto">Contacto</a>
           </div>
-          <a href="#vuelos" className="btn btn-primary" style={{ padding: '0.8rem 1.5rem', fontSize: '0.8rem' }}>Reservar</a>
+          <a href="https://fareharbor.com/embeds/book/auroraballoons/?full-items=yes&flow=1615337" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.8rem 1.5rem', fontSize: '0.8rem' }}>Reservar</a>
         </div>
       </nav>
 
@@ -126,7 +126,7 @@ export default function App() {
                 <ul className="package-features">
                   {pkg.features.map((f, j) => <li key={j}>{f}</li>)}
                 </ul>
-                <a href="#contacto" className="btn btn-primary" style={{ width: '100%' }}>{pkg.cta}</a>
+                <a href="https://fareharbor.com/embeds/book/auroraballoons/?full-items=yes&flow=1615337" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>{pkg.cta}</a>
               </div>
             ))}
           </div>
