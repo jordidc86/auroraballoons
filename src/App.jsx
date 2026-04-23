@@ -13,7 +13,8 @@ const packages = [
       'Transporte desde el punto de encuentro',
       'Reportaje fotográfico y vídeo'
     ],
-    cta: 'Reservar Experiencia'
+    cta: 'Reservar Experiencia',
+    link: 'https://fareharbor.com/embeds/book/auroraballoons/items/723220/?full-items=yes&flow=no'
   },
   {
     name: 'Vuelo Privado',
@@ -26,7 +27,8 @@ const packages = [
       'Recogida en hotel (Segovia)',
       'Vídeo HD de la experiencia'
     ],
-    cta: 'Solicitar Exclusividad'
+    cta: 'Solicitar Exclusividad',
+    link: 'https://fareharbor.com/embeds/book/auroraballoons/?full-items=yes&flow=1615337'
   },
   {
     name: 'Grupos y Empresas',
@@ -39,7 +41,8 @@ const packages = [
       'Coordinación logística completa',
       'Seguro de actividad incluido'
     ],
-    cta: 'Pedir Presupuesto'
+    cta: 'Pedir Presupuesto',
+    link: 'mailto:info@auroraballoons.eu'
   }
 ];
 
@@ -126,7 +129,7 @@ export default function App() {
                 <ul className="package-features">
                   {pkg.features.map((f, j) => <li key={j}>{f}</li>)}
                 </ul>
-                <a href="https://fareharbor.com/embeds/book/auroraballoons/?full-items=yes&flow=1615337" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>{pkg.cta}</a>
+                <a href={pkg.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>{pkg.cta}</a>
               </div>
             ))}
           </div>
