@@ -1,236 +1,200 @@
-const highlights = [
-  'Vuelos al amanecer sobre Segovia',
-  '45–60 minutos de vuelo',
-  'Experiencia completa de 3–4 horas',
-  'Brindis al aterrizar',
-  'Paisaje castellano y sierra al fondo',
-  'Preparada para conectar con FareHarbor',
-]
+import React, { useState, useEffect } from 'react';
+import './styles.css';
 
-const steps = [
+const packages = [
   {
-    title: 'Salida temprana',
-    text: 'La experiencia comienza a primera hora, cuando la luz y la atmósfera convierten Segovia en un espectáculo tranquilo y limpio.',
+    name: 'Vuelo Clásico',
+    price: '180€',
+    features: [
+      'Vuelo al amanecer (45-60 min)',
+      'Brindis con Cava tras el aterrizaje',
+      'Desayuno tradicional completo',
+      'Diploma de vuelo acreditativo',
+      'Transporte desde el punto de encuentro',
+      'Reportaje fotográfico y vídeo'
+    ],
+    cta: 'Reservar Experiencia'
   },
   {
-    title: 'Vuelo panorámico',
-    text: 'Sobrevuela el paisaje segoviano, contempla el campo abierto y disfruta de una perspectiva amplia, serena y muy especial.',
+    name: 'Vuelo Privado',
+    price: '750€',
+    features: [
+      'Cesta exclusiva para 2 personas',
+      'Atención personalizada 100%',
+      'Brindis premium en el aire',
+      'Desayuno gourmet privado',
+      'Recogida en hotel (Segovia)',
+      'Vídeo HD de la experiencia'
+    ],
+    cta: 'Solicitar Exclusividad'
   },
   {
-    title: 'Aterrizaje y brindis',
-    text: 'Tras el vuelo, cerramos la experiencia con un final elegante y memorable, pensado para que el recuerdo quede completo.',
-  },
-]
-
-const faq = [
-  {
-    q: '¿Cuánto dura la experiencia?',
-    a: 'El vuelo suele durar entre 45 y 60 minutos. La actividad completa normalmente ocupa entre 3 y 4 horas contando preparación, inflado, vuelo y regreso.',
-  },
-  {
-    q: '¿A qué hora se vuela?',
-    a: 'Normalmente al amanecer, cuando el aire es más estable y la luz sobre Segovia es especialmente bonita.',
-  },
-  {
-    q: '¿Qué pasa si hace mal tiempo?',
-    a: 'La seguridad es siempre lo primero. Si las condiciones no son adecuadas, se propondrá cambio de fecha.',
-  },
-  {
-    q: '¿Qué ropa conviene llevar?',
-    a: 'Recomendamos ropa cómoda, calzado cerrado y vestimenta adecuada a la temperatura del día.',
-  },
-]
+    name: 'Grupos y Empresas',
+    price: 'Consultar',
+    features: [
+      'Vuelos simultáneos para grupos',
+      'Team building y eventos corporativos',
+      'Personalización de pancartas',
+      'Catering especial opcional',
+      'Coordinación logística completa',
+      'Seguro de actividad incluido'
+    ],
+    cta: 'Pedir Presupuesto'
+  }
+];
 
 export default function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="site-shell">
-      <header className="topbar">
-        <div className="container topbar-inner">
-          <a href="#inicio" className="brand" aria-label="Aurora Balloons">
-            <span className="brand-mark">A</span>
-            <span>
-              <strong>Aurora Balloons</strong>
-              <small>Segovia</small>
-            </span>
-          </a>
-
-          <nav className="nav">
-            <a href="#experiencia">Experiencia</a>
+    <div className="site-wrapper">
+      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="container nav-content">
+          <a href="#" className="logo">AURORA BALLOONS</a>
+          <div className="nav-links">
+            <a href="#experiencia">La Experiencia</a>
+            <a href="#vuelos">Vuelos</a>
             <a href="#galeria">Galería</a>
-            <a href="#faq">FAQ</a>
             <a href="#contacto">Contacto</a>
-          </nav>
-
-          <a className="button button-primary" href="mailto:info@auroraballoons.com">
-            Consultar disponibilidad
-          </a>
+          </div>
+          <a href="#vuelos" className="btn btn-primary" style={{ padding: '0.8rem 1.5rem', fontSize: '0.8rem' }}>Reservar</a>
         </div>
-      </header>
+      </nav>
 
-      <main>
-        <section id="inicio" className="hero hero-photo">
-          <div className="hero-overlay" />
-          <div className="container hero-layout">
-            <div className="hero-panel">
-              <div className="eyebrow">Vuelos en globo en Segovia</div>
-              <h1>Segovia desde el aire, con una mirada más elegante</h1>
-              <p className="hero-copy hero-copy-light">
-                Aurora Balloons presenta una experiencia visualmente cuidada, tranquila y premium.
-                Una web pensada para transmitir confianza desde el primer segundo y convertir visitas en reservas.
+      <section className="hero" style={{ backgroundImage: 'url("/images/photo1.jpg")' }}>
+        <div className="container">
+          <div className="hero-content animate">
+            <span style={{ color: 'var(--accent)', letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.9rem', fontWeight: '600' }}>Vuelos en Globo en Segovia</span>
+            <h1>Toca el cielo, <br />abraza la historia</h1>
+            <p>Descubre la magia de Segovia desde una perspectiva privilegiada. Un viaje sereno al amanecer sobre monumentos milenarios y paisajes infinitos.</p>
+            <div className="hero-actions">
+              <a href="#vuelos" className="btn btn-primary">Ver Vuelos</a>
+              <a href="#experiencia" className="btn" style={{ color: 'white', marginLeft: '1rem', border: '1px solid white' }}>Saber más</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experiencia" className="section">
+        <div className="container">
+          <div className="section-title">
+            <span>El Ritual de Vuelo</span>
+            <h2>Más que un viaje, un recuerdo eterno</h2>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+            <div className="animate">
+              <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'var(--accent)' }}>El Amanecer de una Aventura</h3>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
+                Nuestra jornada comienza cuando la ciudad aún duerme. Participarás en el emocionante proceso de inflado del globo, sintiendo cómo el gigante despierta con las primeras luces del día.
               </p>
-
-              <div className="hero-actions">
-                <a className="button button-primary" href="mailto:info@auroraballoons.com">
-                  Solicitar información
-                </a>
-                <a className="button button-ghost" href="tel:+34605087478">
-                  Llamar ahora
-                </a>
-              </div>
-
-              <ul className="stats stats-overlay" aria-label="Datos clave">
-                <li>
-                  <strong>120 €</strong>
-                  <span>precio orientativo desde</span>
-                </li>
-                <li>
-                  <strong>45–60 min</strong>
-                  <span>de vuelo</span>
-                </li>
-                <li>
-                  <strong>3–4 h</strong>
-                  <span>de experiencia total</span>
-                </li>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
+                Una vez en el aire, el silencio solo se rompe por el suave rugido del quemador. Segovia se despliega ante ti: el Alcázar como un barco de piedra, la Catedral como un faro y el Acueducto trazando la historia en el suelo.
+              </p>
+              <ul className="package-features" style={{ background: 'transparent', padding: 0 }}>
+                <li>Pilotos expertos con miles de horas de vuelo</li>
+                <li>Máxima seguridad y equipamiento renovado</li>
+                <li>Una experiencia íntima y personalizada</li>
               </ul>
             </div>
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="container">
-            <div className="section-heading">
-              <span className="eyebrow">Qué transmite la marca</span>
-              <h2>Una base visual sobria, cálida y premium</h2>
-              <p>
-                La nueva propuesta combina paisaje real, tonos arena y una composición limpia para proyectar una sensación cuidada, cercana y de mayor valor percibido.
-              </p>
-            </div>
-
-            <div className="grid cards-3">
-              {highlights.map((item) => (
-                <article className="card" key={item}>
-                  <h3>{item}</h3>
-                </article>
-              ))}
+            <div className="gallery-item tall animate" style={{ borderRadius: '20px' }}>
+              <img src="/images/photo2.jpg" alt="Preparación del globo" style={{ borderRadius: '20px' }} />
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="galeria" className="section section-alt">
-          <div className="container">
-            <div className="section-heading narrow">
-              <span className="eyebrow">Imagen real</span>
-              <h2>Una web que ya empieza a parecer una marca de verdad</h2>
-            </div>
-
-            <div className="gallery-feature">
-              <img src="/images/aurora-segovia-hero.jpg" alt="Paisaje de Segovia visto desde un globo aerostático" />
-              <div className="gallery-copy card">
-                <h3>Paisaje auténtico, percepción más premium</h3>
-                <p>
-                  Integrar fotografía real mejora mucho la credibilidad de la marca. La home deja de sentirse provisional y empieza a transmitir experiencia real, entorno, amplitud y calma.
-                </p>
+      <section id="vuelos" className="section" style={{ background: '#0d0d1a' }}>
+        <div className="container">
+          <div className="section-title">
+            <span>Nuestras Tarifas</span>
+            <h2>Elige tu forma de volar</h2>
+          </div>
+          <div className="packages-grid">
+            {packages.map((pkg, i) => (
+              <div key={i} className="package-card animate" style={{ animationDelay: `${i * 0.2}s` }}>
+                <h3>{pkg.name}</h3>
+                <div className="package-price">{pkg.price}</div>
+                <ul className="package-features">
+                  {pkg.features.map((f, j) => <li key={j}>{f}</li>)}
+                </ul>
+                <a href="#contacto" className="btn btn-primary" style={{ width: '100%' }}>{pkg.cta}</a>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="experiencia" className="section">
-          <div className="container">
-            <div className="section-heading narrow">
-              <span className="eyebrow">La experiencia</span>
-              <h2>Todo el recorrido explicado con claridad</h2>
-            </div>
-
-            <div className="grid cards-3">
-              {steps.map((step, index) => (
-                <article className="card step-card" key={step.title}>
-                  <div className="step-number">0{index + 1}</div>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </article>
-              ))}
-            </div>
+      <section id="galeria" className="section">
+        <div className="container">
+          <div className="section-title">
+            <span>Momentos Aurora</span>
+            <h2>Galería de Experiencias</h2>
           </div>
-        </section>
+          <div className="gallery-grid">
+            <div className="gallery-item wide animate"><img src="/images/photo3.jpg" alt="Vistas de Segovia" /></div>
+            <div className="gallery-item tall animate"><img src="/images/photo4.jpg" alt="Cesta del globo" /></div>
+            <div className="gallery-item animate"><img src="/images/photo5.jpg" alt="Vuelo en formación" /></div>
+            <div className="gallery-item animate"><img src="/images/photo6.jpg" alt="Aterrizaje" /></div>
+            <div className="gallery-item wide animate"><img src="/images/photo7.jpg" alt="Brindis con cava" /></div>
+            <div className="gallery-item animate"><img src="/images/photo8.jpg" alt="Detalle del globo" /></div>
+          </div>
+        </div>
+      </section>
 
-        <section className="section section-alt">
-          <div className="container split-panel">
+      <section id="contacto" className="section" style={{ background: 'var(--accent)', color: 'var(--primary)' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <h2 style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>¿Listo para el despegue?</h2>
+          <p style={{ fontSize: '1.2rem', marginBottom: '3rem', maxWidth: '600px', marginInline: 'auto' }}>
+            Reserva hoy tu plaza o regala una experiencia que cambiará tu forma de ver el mundo. Estamos a tu disposición para cualquier duda.
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem' }}>
+            <a href="mailto:info@auroraballoons.eu" className="btn" style={{ background: 'var(--primary)', color: 'white' }}>Enviar Email</a>
+            <a href="tel:+34605087478" className="btn" style={{ border: '2px solid var(--primary)', color: 'var(--primary)' }}>Llamar: 605 087 478</a>
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <div className="container">
+          <div className="footer-grid">
             <div>
-              <span className="eyebrow">Preparada para reservar</span>
-              <h2>La web queda lista para integrar FareHarbor</h2>
-              <p>
-                La estructura sigue enfocada a captación y conversión, pero sin depender aún de un sistema provisional. Así podrás conectar FareHarbor después sin rehacer la base ni el estilo.
+              <h4 className="logo">AURORA BALLOONS</h4>
+              <p style={{ color: 'var(--text-muted)', marginTop: '1rem' }}>
+                Especialistas en crear recuerdos inolvidables sobre los cielos de Castilla. Calidad, seguridad y pasión en cada vuelo.
               </p>
             </div>
-
-            <div className="contact-card">
-              <h3>Contacto actual</h3>
-              <ul>
-                <li><strong>Teléfono:</strong> <a href="tel:+34605087478">605 087 478</a></li>
-                <li><strong>Email:</strong> <a href="mailto:info@auroraballoons.com">info@auroraballoons.com</a></li>
+            <div>
+              <h4>Explorar</h4>
+              <ul className="footer-links">
+                <li><a href="#experiencia">La Experiencia</a></li>
+                <li><a href="#vuelos">Vuelos</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Legal</h4>
+              <ul className="footer-links">
+                <li><a href="/politica-privacidad.html">Privacidad</a></li>
+                <li><a href="/aviso-legal.html">Aviso Legal</a></li>
+                <li><a href="/condiciones-reserva.html">Condiciones</a></li>
               </ul>
             </div>
           </div>
-        </section>
-
-        <section id="faq" className="section">
-          <div className="container">
-            <div className="section-heading narrow">
-              <span className="eyebrow">Preguntas frecuentes</span>
-              <h2>Información práctica para el cliente</h2>
-            </div>
-
-            <div className="faq-list">
-              {faq.map((item) => (
-                <details className="faq-item" key={item.q}>
-                  <summary>{item.q}</summary>
-                  <p>{item.a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer id="contacto" className="footer">
-        <div className="container footer-grid">
-          <div>
-            <h3>Aurora Balloons</h3>
-            <p>
-              Vuelos en globo en Segovia con una propuesta visual elegante y una base técnica lista para publicar en Netlify.
-            </p>
-          </div>
-
-          <div>
-            <h4>Contacto</h4>
-            <ul className="footer-list">
-              <li><a href="tel:+34605087478">605 087 478</a></li>
-              <li><a href="mailto:info@auroraballoons.com">info@auroraballoons.com</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4>Legal</h4>
-            <ul className="footer-list">
-              <li><a href="/aviso-legal.html">Aviso legal</a></li>
-              <li><a href="/politica-privacidad.html">Política de privacidad</a></li>
-              <li><a href="/politica-cookies.html">Política de cookies</a></li>
-              <li><a href="/condiciones-reserva.html">Condiciones de reserva</a></li>
-            </ul>
+          <div style={{ textAlign: 'center', marginTop: '4rem', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+            © {new Date().getFullYear()} Aurora Balloons. Todos los derechos reservados.
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
